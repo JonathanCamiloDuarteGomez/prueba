@@ -78,6 +78,27 @@ main {
 
     min-height: 100vh;
 }
+.header__agregar form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#tituloPelicula {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.header__agregar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 1600px) {
     .lista {

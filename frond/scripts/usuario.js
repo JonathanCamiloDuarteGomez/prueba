@@ -86,3 +86,39 @@ function configurarFiltroPorCategoria() {
         }
     });
 }
+//agregar peliculas 
+document.getElementById('form-agregar-pelicula').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const input = document.getElementById('tituloPelicula');
+    const titulo = input.value.trim();
+    const usuario = localStorage.getItem('usuario');
+
+    if (!usuario) {
+        alert('Usuario no autenticado');
+        return;
+    }
+
+    if (titulo.length < 2) {
+        alert('Ingresa un título válido');
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/peliculas/${usuario}?titulo=${encodeURIComponent(titulo)}`, {
+            method: 'POST'
+        });
+
+        if (!response.ok) {
+            throw new Error('No se pudo agregar la película');
+        }
+
+        const data = await response.json();
+        alert(`Película "${data.titulo}" agregada exitosamente`);
+        input.value = '';
+        cargarTodasLasPeliculas(); // recarga la lista automáticamente
+    } catch (error) {
+        console.error('Error al agregar película:', error);
+        alert('Error al agregar la película');
+    }
+});
+

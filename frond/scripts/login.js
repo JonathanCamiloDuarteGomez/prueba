@@ -151,25 +151,35 @@
             setLoading(true);
             
             try {
-                // Simular llamada a API
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Aquí iría tu lógica de registro real
-                // const response = await fetch('/api/register', { ... });
-                
-                // Simulación de registro exitoso
-                showSuccess('¡Cuenta creada exitosamente! Puedes iniciar sesión ahora.');
-                
-                setTimeout(() => {
-                    switchTab('login');
-                    document.getElementById('loginEmail').value = email;
-                }, 2000);
-                
-            } catch (error) {
-                showError('Error al crear la cuenta. Por favor intenta nuevamente.');
-            } finally {
-                setLoading(false);
-            }
+        const response = await fetch('http://localhost:8080/api/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre: name,
+                    email: email,
+                    contrasena: password
+                })
+            });
+
+        if (!response.ok) {
+            const msg = await response.text();
+            throw new Error(msg || 'Error en el registro');
+        }
+
+    showSuccess('¡Cuenta creada exitosamente! Puedes iniciar sesión ahora.');
+    setTimeout(() => {
+                    // Redirigir a la página principal
+                    window.location.href = '/index.html'; // Cambia por tu URL
+                }, 1000);
+
+  
+
+        } catch (error) {
+        showError('Error al crear la cuenta: ' + error.message);
+        }
+
         });
 
         // Limpiar mensajes cuando el usuario empiece a escribir

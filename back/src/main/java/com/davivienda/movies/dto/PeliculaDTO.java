@@ -6,7 +6,7 @@ public record PeliculaDTO(
         Long id,
         String titulo,
         Integer ano_Estreno,
-        String Director,
+        String director,
         Double evaluacion,
         String poster,
         Categoria genero,

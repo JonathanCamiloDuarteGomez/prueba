@@ -32,7 +32,16 @@
         </div>
 
         <div class="header__opciones">
-            
+            <div class="header__agregar">
+            <form id="form-agregar-pelicula">
+                <input type="text" id="tituloPelicula" placeholder="Nombre de la película" required />
+                <button type="submit" title="Agregar película" class="material-symbols-outlined">add</button>
+            </form>
+        </div>
+
+            <button class="material-symbols-outlined", onclick="location.href='index.html'">
+                home
+            </button>
         </div>
     </header>
 
@@ -42,6 +51,7 @@
                 Peliculas
             </h2>
         </section>
+        
         <section data-name="categoria" class="hidden pesquisa">
             <h2>Títulos en CineBytes</h2>
         </section>

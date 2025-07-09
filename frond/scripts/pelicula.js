@@ -16,6 +16,9 @@ function cargarInfoSerie() {
                 <div>
                     <h2>${data.titulo}</h2>
                     <div class="descricao-texto">
+                        <p><b>Fecha de lanzamiento:</b> ${data.ano_Estreno}</p>
+                        <p><b>Director:</b> ${data.director}</p>
+                        <p><b>Género:</b> ${data.genero}</p>
                         <p><b>Média de evaluaciones:</b> ${data.evaluacion}</p>
                         <p>${data.sinopsis}</p>
                         <p><b>Actores:</b> ${data.actores}</p>
