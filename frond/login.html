@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>CINE BYTES - Iniciar Sesión</title>
+   
+</head>
+<body>
+    <a href="/index.html" class="back-to-site">← Volver a CINE BYTES</a>
+    
+    <div class="login-container">
+        <div class="logo">
+            <h1>CINE BYTES</h1>
+            <p>Tu catálogo de películas favoritas</p>
+        </div>
+
+        <div class="form-tabs">
+            <button class="tab-button active" onclick="switchTab('login', event)">Iniciar Sesión</button>
+            <button class="tab-button" onclick="switchTab('register', event)">Registrarse</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <!-- Formulario de Login -->
+        <form id="loginForm" style="display: block;">
+            <div class="form-group">
+                <label for="loginNombre">Nombre de usuario</label>
+                <input type="text" id="loginNombre" name="nombre" placeholder="Camilo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" name="password" placeholder="Tu contraseña" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Iniciar Sesión</button>
+            
+            <div class="forgot-password">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+
+        <!-- Formulario de Registro -->
+        <form id="registerForm" style="display: none;">
+            <div class="form-group">
+                <label for="registerName">Nombre Completo</label>
+                <input type="text" id="registerName" name="name" placeholder="Tu nombre completo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerEmail">Correo Electrónico</label>
+                <input type="email" id="registerEmail" name="email" placeholder="tu@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerPassword">Contraseña</label>
+                <input type="password" id="registerPassword" name="password" placeholder="Mínimo 6 caracteres" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar Contraseña</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu contraseña" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Crear Cuenta</button>
+        </form>
+    </div>
+
+    <script>
+       
+
+        // Efecto de partículas en el fondo (opcional)
+        function createParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.left = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '-1';
+            document.body.appendChild(particlesContainer);
+
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '2px';
+                particle.style.height = '2px';
+                particle.style.background = '#00d4ff';
+                particle.style.borderRadius = '50%';
+                particle.style.opacity = Math.random() * 0.5;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // CSS para la animación de partículas
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+                50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Inicializar partículas
+        createParticles();
+    </script>
+    <script src="./scripts/login.js" type="module"></script>
+</body>
+</html>

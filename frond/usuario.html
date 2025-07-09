@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>CineBytes</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <img src="./img/logo.png" alt="Logo CineBytes">
+            <h1>CineBytes</h1>
+            
+            <select id="categorias-select" data-categorias title="Categorías">
+                <option value="todos">Categorias</option>
+                <option value="comedia">Comedia</option>
+                <option value="acción">Acción</option>
+                <option value="crimen">Crimen</option>
+                <option value="drama">Drama</option>
+                <option value="aventura">Aventura</option>
+                <option value="animacion">Animacion</option>
+            </select>
+        </div>
+
+        <div class="header__opciones">
+            
+        </div>
+    </header>
+
+    <main>
+        <section data-name="peliculas" class="section">
+            <h2>
+                Peliculas
+            </h2>
+        </section>
+        <section data-name="categoria" class="hidden pesquisa">
+            <h2>Títulos en CineBytes</h2>
+        </section>
+    </main>
+    <script src="./scripts/usuario.js" type="module"></script>
+</body>
+
+</html>
